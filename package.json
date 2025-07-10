@@ -10,28 +10,25 @@
         "components",
         "api-documentation"
     ],
-    "scripts": {
-        "build": "turbo run build",
-        "build-force": "pnpm clean && turbo run build --force",
-        "dev": "turbo run dev --parallel --no-cache",
-        "start": "run-script-os",
-        "start:windows": "cd packages/server/bin && run start",
-        "start:default": "cd packages/server/bin && ./run start",
-        "start-worker": "run-script-os",
-        "start-worker:windows": "cd packages/server/bin && run worker",
-        "start-worker:default": "cd packages/server/bin && ./run worker",
-        "user": "run-script-os",
-        "user:windows": "cd packages/server/bin && run user",
-        "user:default": "cd packages/server/bin && ./run user",
-        "test": "turbo run test",
-        "clean": "pnpm --filter \"./packages/**\" clean",
-        "nuke": "pnpm --filter \"./packages/**\" nuke && rimraf node_modules .turbo",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-        "lint": "eslint \"**/*.{js,jsx,ts,tsx,json,md}\"",
-        "lint-fix": "pnpm lint --fix",
-        "quick": "pretty-quick --staged",
-        "postinstall": "husky install",
-        "migration:create": "pnpm typeorm migration:create"
+   "scripts": {
+  "build": "turbo run build",
+  "build-force": "pnpm clean && turbo run build --force",
+  "dev": "turbo run dev --parallel --no-cache",
+  "start": "pnpm --filter @flowise/server start",
+  "start:prod": "pnpm --filter @flowise/server start",
+  "start-worker": "pnpm --filter @flowise/worker start",
+  "user": "pnpm --filter @flowise/server run user",
+  "test": "turbo run test",
+  "clean": "pnpm --filter \"./packages/**\" clean",
+  "nuke": "pnpm --filter \"./packages/**\" nuke && rimraf node_modules .turbo",
+  "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+  "lint": "eslint \"**/*.{js,jsx,ts,tsx,json,md}\"",
+  "lint-fix": "pnpm lint --fix",
+  "quick": "pretty-quick --staged",
+  "postinstall": "husky install",
+  "migration:create": "pnpm typeorm migration:create"
+}
+
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,md}": "eslint --fix"
